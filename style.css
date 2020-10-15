@@ -1,0 +1,41 @@
+header img {
+  height: 50px;
+}
+
+header h1 {
+  color: red;
+}
+
+a {
+  color: blue;
+}
+
+h2 {
+  background: green;
+  color: white;
+  padding: 5px;
+}
+
+.first__hw {
+  color: white;
+  background: blue;
+  width: 100px;
+  margin-bottom: 100px;
+}
+
+header p span {
+  color: red;
+}
+
+.second h2 {
+  padding: 50px;
+}
+
+.second p {
+  padding-left: 150px;
+}
+
+.third li {
+  border: 1px solid black;
+  font-size: 1.5rem;
+}
