@@ -15,7 +15,7 @@ function processData() {
     if (selectedNumbers.length === 4) {
         document.getElementById("output").innerText = selectedNumbers.join(", ");
     } else {
-        document.getElementById("output").innerText = "Cannot find a unique set of numbers.";
+        document.getElementById("output").innerText = "Не удалось найти нужные числа";
     }
 }
 
