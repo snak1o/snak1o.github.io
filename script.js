@@ -1,3 +1,17 @@
+document.addEventListener('DOMContentLoaded', (event) => {
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach((input, index) => {
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (index + 1 < inputs.length) {
+                    inputs[index + 1].focus();
+                }
+            }
+        });
+    });
+});
+
 function processData() {
     let data = [];
     for (let i = 0; i < 5; i++) {
@@ -13,7 +27,7 @@ function processData() {
 
     const selectedNumbers = findUniqueNumbers(data);
     if (selectedNumbers.length === 4) {
-        document.getElementById("output").innerText = selectedNumbers.join(", ");
+        document.getElementById("output").innerText = selectedNumbers.join(".");
     } else {
         document.getElementById("output").innerText = "Не удалось найти нужные числа";
     }
