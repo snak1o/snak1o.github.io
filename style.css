@@ -39,3 +39,11 @@ input[type="number"] {
     visibility: visible;
     opacity: 1;
 }
+@media (max-width: 600px) {
+    .tooltip .tooltiptext {
+      bottom: -175%;
+      left: auto;
+      right: 25%;
+      white-space: normal;
+    }
+  }
