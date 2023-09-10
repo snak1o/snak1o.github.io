@@ -71,3 +71,11 @@ function usesAllDigits(numbers) {
     }
     return seenDigits.size === 10; 
 }
+
+function clearData() {
+    const inputs = document.querySelectorAll('input');
+    inputs.forEach(input => {
+        input.value = '';
+    });
+    document.getElementById("output").innerText = '';
+}
