@@ -47,3 +47,38 @@ input[type="number"] {
       white-space: normal;
     }
   }
+  #carousel-section {
+    position: relative;
+    width: 1090px;
+    margin: 0 auto;
+  }
+
+  .carousel-container {
+    overflow: hidden;
+  }
+  .carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+  .carousel-item {
+    width: 350px; 
+  }
+  .carousel-item:not(:last-child){
+    margin-right: 20px;
+  }
+  .carousel-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  .carousel-button-prev {
+    left: -50px;
+  }
+  .carousel-button-next {
+    right: -50px;
+  }

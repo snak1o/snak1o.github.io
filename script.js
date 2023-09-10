@@ -79,3 +79,57 @@ function clearData() {
     });
     document.getElementById("output").innerText = '';
 }
+
+let currentOffset = 0;
+const windowSize = 3;
+const paginationFactor = 370;
+const carouselData = [
+  {name: "Discord Fishing", source: "./fishing_banner.png", link: "https://discord.gg/4eGqdc8eHx"},
+  {name: "Discord Gym", source: "./gym_banner.png", link: "https://discord.gg/sdSRwWM5Qw"},
+  {name: "Discord Gym", source: "./gym_banner.png", link: "https://discord.gg/sdSRwWM5Qw"},
+  {name: "Discord Gym", source: "./gym_banner.png", link: "https://discord.gg/sdSRwWM5Qw"},
+  {name: "Discord Gym", source: "./gym_banner.png", link: "https://discord.gg/sdSRwWM5Qw"},
+];
+
+const carouselElement = document.getElementById('carousel');
+
+carouselData.forEach((item, index) => {
+  const slideElement = document.createElement('div');
+  slideElement.classList.add('carousel-item');
+
+  const linkElement = document.createElement('a');
+  linkElement.href = item.link;
+  linkElement.target = "_blank";
+
+  const imgElement = document.createElement('img');
+  imgElement.src = item.source;
+  imgElement.alt = item.name;
+  imgElement.style.width = '350px';
+  imgElement.style.maxWidth = 'none';
+
+  linkElement.appendChild(imgElement);
+  slideElement.appendChild(linkElement);
+
+  carouselElement.appendChild(slideElement);
+});
+
+function atEndOfList() {
+  return currentOffset <= (paginationFactor * -1) * (carouselData.length - windowSize);
+}
+
+function atHeadOfList() {
+  return currentOffset === 0;
+}
+
+function moveCarousel(direction) {
+  if (direction === 1 && !atEndOfList()) {
+    currentOffset -= paginationFactor;
+  } else if (direction === -1 && !atHeadOfList()) {
+    currentOffset += paginationFactor;
+  }
+  carouselElement.style.transform = `translateX(${currentOffset}px)`;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  moveCarousel(0);
+});
