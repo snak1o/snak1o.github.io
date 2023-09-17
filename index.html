@@ -52,36 +52,20 @@
                 <td><input type="number" inputmode="numeric" class="bg-gray-700 rounded outline-none" id="num4-3"></td>
             </tr>
         </table>
-        <div class="text-center mt-5">
+        <div class="text-center m-1">
             <div class="w-full flex sm:flex-row flex-col px-2 items-center space-y-5 sm:space-y-0 sm:space-x-5 justify-center">
                 <button onclick="processData()" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-40">Найти</button>
                 <button onclick="clearData()" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-40">Очистить</button>
             </div>
             <p id="output" class="mt-2 text-2xl text-green-500 font-bold"></p>
-            <h2 class="text-2xl mt-7">
+            <h2 class="text-2xl my-7">
                 Другие наши проекты
             </h2>
-            <div class="mt-5 space-y-10 md:space-x-10 md:space-y-0 flex flex-col md:flex-row justify-center p-2">
-                <div class="flex justify-center">
-                    <a href="https://discord.gg/2gU3vFXAXU" target="_blank">
-                        <img style="width: 500px;"  src="./lucky_wheel_banner.png" alt="gta 5 rp колесо удачи анти афк"/>
-                    </a>
-                </div>
-                <div class="flex justify-center">
-                    <a href="https://discord.gg/4eGqdc8eHx" target="_blank">
-                        <img style="width: 500px;"  src="./fishing_banner.png" alt="gta 5 rp рыбалка"/>
-                    </a>
-                </div>
-                
+            <div id="carousel" class="carousel relative overflow-hidden">
+                <div class="carousel-inner"></div>
             </div>
-            <!-- <div id="carousel-section">
-                <div id="carousel-container" class="carousel-container">
-                    <div id="carousel" class="carousel-slide"></div>
-                </div> 
-                <button id="prevBtn" class="carousel-button carousel-button-prev" onclick="moveCarousel(-1)">←</button>
-                <button id="nextBtn" class="carousel-button carousel-button-next" onclick="moveCarousel(1)">→</button>
-            </div> -->
         </div>
+
     </div>
 
 

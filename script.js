@@ -79,57 +79,48 @@ function clearData() {
     });
     document.getElementById("output").innerText = '';
 }
-
-let currentOffset = 0;
-const windowSize = 3;
-const paginationFactor = 370;
-const carouselData = [
-  {name: "Discord Fishing", source: "./fishing_banner.png", link: "https://discord.gg/4eGqdc8eHx"},
-  {name: "Discord Gym", source: "./gym_banner.png", link: "https://discord.gg/sdSRwWM5Qw"},
-  {name: "Discord Gym", source: "./gym_banner.png", link: "https://discord.gg/sdSRwWM5Qw"},
-  {name: "Discord Gym", source: "./gym_banner.png", link: "https://discord.gg/sdSRwWM5Qw"},
-  {name: "Discord Gym", source: "./gym_banner.png", link: "https://discord.gg/sdSRwWM5Qw"},
-];
-
-const carouselElement = document.getElementById('carousel');
-
-carouselData.forEach((item, index) => {
-  const slideElement = document.createElement('div');
-  slideElement.classList.add('carousel-item');
-
-  const linkElement = document.createElement('a');
-  linkElement.href = item.link;
-  linkElement.target = "_blank";
-
-  const imgElement = document.createElement('img');
-  imgElement.src = item.source;
-  imgElement.alt = item.name;
-  imgElement.style.width = '350px';
-  imgElement.style.maxWidth = 'none';
-
-  linkElement.appendChild(imgElement);
-  slideElement.appendChild(linkElement);
-
-  carouselElement.appendChild(slideElement);
-});
-
-function atEndOfList() {
-  return currentOffset <= (paginationFactor * -1) * (carouselData.length - windowSize);
-}
-
-function atHeadOfList() {
-  return currentOffset === 0;
-}
-
-function moveCarousel(direction) {
-  if (direction === 1 && !atEndOfList()) {
-    currentOffset -= paginationFactor;
-  } else if (direction === -1 && !atHeadOfList()) {
-    currentOffset += paginationFactor;
+let slidesData = [
+    { src: './lucky_wheel_banner.png', alt: 'гта 5 рп колесо удачи анти афк', link: 'https://discord.gg/2gU3vFXAXU' },
+    { src: './dance_banner.png', alt: 'гта 5 рп dance battle', link: 'https://discord.gg/UPuQUT7a9x' },
+    { src: './gym_banner.png', alt: 'гта 5 рп спортзал автокачалка', link: 'https://discord.gg/sdSRwWM5Qw' },
+    { src: './fishing_banner.png', alt: 'гта 5 рп рыбалка', link: 'https://discord.gg/4eGqdc8eHx' },
+  ];
+  
+  let autoScrollInterval;
+  
+  function initializeCarousel() {
+    updateCarousel();
   }
-  carouselElement.style.transform = `translateX(${currentOffset}px)`;
-}
+  
+function updateCarousel() {
+    const carouselInner = document.querySelector('.carousel-inner');
+    carouselInner.style.transform = 'translateX(-100%)';
+    
+    setTimeout(() => {
+      carouselInner.style.transition = 'none';
+      carouselInner.innerHTML = slidesData.map((slide, index) => `
+      <div class="carousel-item ${index === 0 ? 'active' : ''}">
+        <a href="${slide.link}">
+          <img src="${slide.src}" alt="${slide.alt}" loading="lazy">
+        </a>
+      </div>
+    `).join('');
+      carouselInner.style.transform = 'translateX(0%)';
+      
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          carouselInner.style.transition = 'transform 0.7s ease';
+        });
+      });
+    }, 700);
+  }
+  
+  function startAutoScroll() {
+    autoScrollInterval = setInterval(() => {
+      slidesData.push(slidesData.shift());
+      updateCarousel();
+    }, 5000);
+  }
 
-document.addEventListener('DOMContentLoaded', () => {
-  moveCarousel(0);
-});
+  initializeCarousel();
+  startAutoScroll();

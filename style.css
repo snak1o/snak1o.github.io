@@ -47,38 +47,31 @@ input[type="number"] {
       white-space: normal;
     }
   }
-  #carousel-section {
-    position: relative;
-    width: 1090px;
+  .carousel {
+    max-width: 600px;
+    width: 100%;
     margin: 0 auto;
-  }
-
-  .carousel-container {
+    border-radius: 15px;
     overflow: hidden;
   }
-  .carousel-slide {
+  .carousel-inner-container {
+    padding: 0 20px;
+  }
+  
+  .carousel-inner {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.7s ease;
+    width: 100%;
   }
+  
   .carousel-item {
-    width: 350px; 
+    flex: 0 0 100%;
+    box-sizing: border-box;
   }
-  .carousel-item:not(:last-child){
-    margin-right: 20px;
+  
+  .carousel-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
   }
-  .carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: #fff;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-  }
-  .carousel-button-prev {
-    left: -50px;
-  }
-  .carousel-button-next {
-    right: -50px;
-  }
+
