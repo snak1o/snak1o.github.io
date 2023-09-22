@@ -80,10 +80,10 @@ function clearData() {
     document.getElementById("output").innerText = '';
 }
 let slidesData = [
-    { src: './lucky_wheel_banner.png', alt: 'гта 5 рп колесо удачи анти афк', link: 'https://discord.gg/2gU3vFXAXU' },
-    { src: './dance_banner.png', alt: 'гта 5 рп dance battle', link: 'https://discord.gg/UPuQUT7a9x' },
-    { src: './gym_banner.png', alt: 'гта 5 рп спортзал автокачалка', link: 'https://discord.gg/sdSRwWM5Qw' },
-    { src: './fishing_banner.png', alt: 'гта 5 рп рыбалка', link: 'https://discord.gg/4eGqdc8eHx' },
+    { src: './lucky_wheel_banner.png', alt: 'гта 5 рп колесо удачи анти афк', link: 'https://discord.gg/gta6rp' },
+    { src: './dance_banner.png', alt: 'гта 5 рп dance battle', link: 'https://discord.gg/gta6rp' },
+    { src: './gym_banner.png', alt: 'гта 5 рп спортзал автокачалка', link: 'https://discord.gg/gta6rp' },
+    { src: './fishing_banner.png', alt: 'гта 5 рп рыбалка', link: 'https://discord.gg/gta6rp' },
   ];
   
   let autoScrollInterval;
